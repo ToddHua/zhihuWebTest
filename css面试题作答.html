@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+body {margin: 0;}
+
+/* ABC
+.wrap {width: 100%; height: 200px; bakckground: red;}
+.a {width: 180px; height: 200px; background: blue; float: left;}
+.b {width: 600px; height: 200px; background: green; float: left;}
+.c{width: 180px; height: 200px; background: gray; float: left;}
+*/
+/*CBA其中B自适应宽度
+.wrap {width: 100%; height: 200px; bakckground: red;}
+.a {width: 180px; height: 200px; background: blue; float: right;}
+.b { height: 200px; background: green; margin-left: 180px;}
+.c{width: 180px; height: 200px; background: gray; float: left;}
+*/
+/*BAC
+.wrap {width: 100%; height: 200px; bakckground: red; position: relative;}
+.a {width: 180px; height: 200px; background: blue; position: absolute; left:600px;}
+.b { width: 600px; height: 200px; background: green; position: absolute; left:0;}
+.c{width: 180px; height: 200px; background: gray; position: absolute; left:780px;}
+
+*/</style>
+</head>
+
+<body>
+<div class="wrap">
+	<div class="a">A</div>
+    <div class="c">C</div>
+    <div class="b">B</div>
+</div>
+</body>
+</html>

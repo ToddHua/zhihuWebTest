@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+*{padding:0;margin:0;}
+a{outline:none;text-decoration:none;}
+body{font: 14px/1.5 arial}
+.w960{width:560px;margin:0 auto;}
+.hd{background: #059ed3;color:#fff;}
+.hd,.ft{padding:5px;}
+.ft{background:#ccc;text-align:right;}
+.row{padding:5px;border-bottom:solid 1px #eee;}
+.row div{display:inline}
+.row a{float:right;}
+.ft a{color:green;font-weight:bold}
+code{display:block;border:solid 1px #666;padding:10px;background:#ffffc0;}
+h3{margin:10px 0;color:#ff9900;}
+input{border:solid 1px #c0c0c0;line-height:1.5em;height:1.5em}
+</style>
+</head>
+
+<body>
+<div class="w960">
+    <div id="datalist">
+      <div class="hd">现在一共有：<strong class="item_count"></strong> 个条目</div>
+      <div class="list">
+        <div class="row"><div>这是第一条</div><a href="javascript:;">修改</a></div>
+        <div class="row"><div>这是第二条</div><a href="javascript:;">修改</a></div>
+        <div class="row"><div>花儿为什么这样红？</div><a href="javascript:;">修改</a></div>
+        <div class="row"><div>你知道小月月是哪个不？</div><a href="javascript:;">修改</a></div>
+        <div class="row"><div>人生就是一个杯具</div><a href="javascript:;">修改</a></div>
+      </div>
+      <div class="ft"><a href="javascript:;">新增条目</a></div>
+    </div>
+</div>
+
+<script src="jQueryApi/jquery-2.2.1.js"></script>
+<script>
+$(document).ready(function() {
+	var $list = $(".list");							//显示现在有几个条目
+	var length = $list.find("div.row").length;	
+	$(".item_count").html(length);
+	
+	function change (){								//定义保存、修改的方法
+		$(".row").find("a").click(function(){
+		if ($(this).html()==="修改"){
+			$(this).html("保存");
+				text = $(this).siblings("div").html();                      
+				show_input = "<input type='text' value='"+text+"'>";
+				new_text = $(this).siblings("div").html(show_input);
+		    }else{
+				$(this).html("修改");  
+				var aa =$(this).siblings("div").find("input").val();  
+				$(this).siblings("div").html(aa);        
+				}
+		}); 
+	}
+	change();						//调用保存修改的方法
+	
+	$(".ft").find("a").click(function(){			//新增的条目，以及方法的添加
+		var add = "<div class='row'><div>未命名</div><a href='javascript:;'>修改</a></div>";
+		$(".list").append(add);
+		var length = $list.find("div.row").length;
+		$(".item_count").html(length);	
+		change();
+		});	
+});
+</script>
+</body>
+</html>
